@@ -2,27 +2,13 @@ package com.example.webServer.entity;
 
 
 public class Response {
-    String msg;
     int code;
-    Boolean isTure = true;
 
     public Response() {
     }
 
-    public Response(String msg, int code, Boolean isTure) {
-        this.msg = msg;
+    public Response( int code) {
         this.code = code;
-        this.isTure = isTure;
-    }
-
-    public String getMsg() {
-
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-
-        this.msg = msg;
     }
 
     public int getCode() {
@@ -30,17 +16,7 @@ public class Response {
     }
 
     public void setCode(int code) {
-
         this.code = code;
-    }
-
-    public Boolean getTure() {
-
-        return isTure;
-    }
-
-    public void setTure(Boolean isTure) {
-        this.isTure = isTure;
     }
 }
 
