@@ -1,6 +1,5 @@
-package com.example.webServer.controller;
-
-import com.example.webServer.entity.Response;
+package com.emqx.svtserver.controller;
+import com.emqx.svtserver.entity.Response;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

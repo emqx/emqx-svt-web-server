@@ -1,5 +1,4 @@
-package com.example.webServer.entity;
-
+package com.emqx.svtserver.entity;
 
 public class Response {
     int code;
@@ -8,6 +7,7 @@ public class Response {
     }
 
     public Response( int code) {
+
         this.code = code;
     }
 
@@ -19,4 +19,3 @@ public class Response {
         this.code = code;
     }
 }
-
