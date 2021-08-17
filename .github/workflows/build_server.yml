@@ -1,0 +1,35 @@
+name: Build webserver Jar
+
+on:
+  push:
+#   tags:
+#     - e*
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '8.0.282' # The JDK version to make available on the path.
+        java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
+        architecture: x64 # (x64 or x86) - defaults to x64
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v2
+      with:
+        name: emqx-svt-web.*.zip
+        path: /tmp
+    - name: maven
+      run: |
+        unzip unzip -q /emqx-svt-web.*.zip -d /tmp
+        mvn clean package
+    - name: build web server
+      run: |
+        cd ./svtserver/target/
+        java -jar svtserver-0.0.1.jar
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: web_server
+        path: /tmp
