@@ -22,11 +22,6 @@ jobs:
       run: |
         cd ./svtserver
         mvn clean package
-    - uses: actions/upload-artifact@v2
-      if: always()
-      with:
-        name: svtserver
-        path: ./svtserver/target/svtserver-0.0.1.jar
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
       id: create_release
